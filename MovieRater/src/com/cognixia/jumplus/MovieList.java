@@ -64,6 +64,13 @@ public class MovieList {
 		System.out.format("%24s",col[2]);
 		System.out.println("");
 		
+		System.out.print("+");
+		for(int i = 0; i < 94; i++) {
+			System.out.print("-");
+		}
+		System.out.print("+");
+		System.out.println("");
+		
 		//Print data
 		for(int i = 0; i < movies.size(); i++) {
 			System.out.format("%24s", (i + 1) + ").");
@@ -72,14 +79,68 @@ public class MovieList {
 			System.out.format("%24s", data[i][2]);
 			System.out.println("");
 		}
+		System.out.format("%24s", "6.)");
+		System.out.format("%24s", "EXIT");System.out.println("");
+		System.out.print("+");
+		for(int i = 0; i < 94; i++) {
+			System.out.print("-");
+		}
+		System.out.print("+");
+		
+		for(int i = 0; i<8;i++) {
+			System.out.println("");
+		}
+		
+		
+	}
+	
+	public void printRateScreen(int movieIndex) {
 		System.out.print("+");
 		for(int i = 0; i < 94; i++) {
 			System.out.print("-");
 		}
 		System.out.print("+");
 		System.out.println("");
+		System.out.format("%24s", "Movie:");
+		System.out.format("%24s", movies.get(movieIndex).getTitle());
+		System.out.println("");
+		System.out.print("+");
+		for(int i = 0; i < 94; i++) {
+			System.out.print("-");
+		}
+		System.out.print("+");
+		System.out.println("");
+		System.out.println("");
+		System.out.format("%24s", "Enter a Rating:");
+		System.out.println("");
+		System.out.format("%24s", "0.)");
+		System.out.format("%24s", "Really Bad");
+		System.out.println("");
+		System.out.format("%24s", "1.)");
+		System.out.format("%24s", "Bad");System.out.println("");
+		System.out.format("%24s", "2.)");
+		System.out.format("%24s", "Not Good");System.out.println("");
+		System.out.format("%24s", "3.)");
+		System.out.format("%24s", "Okay");System.out.println("");
+		System.out.format("%24s", "4.)");
+		System.out.format("%24s", "Good");System.out.println("");
+		System.out.format("%24s", "5.)");
+		System.out.format("%24s", "Great");System.out.println("");
+		System.out.println("");
+		System.out.format("%24s", "6.)");
+		System.out.format("%24s", "EXIT");System.out.println("");
+		System.out.print("+");
+		for(int i = 0; i < 94; i++) {
+			System.out.print("-");
+		}
+		System.out.print("+");
 		
+		for(int i = 0; i<8;i++) {
+			System.out.println("");
+		}
 	}
+	
+	
 	
 	
 }
