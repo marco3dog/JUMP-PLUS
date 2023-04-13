@@ -4,14 +4,14 @@ public class MovieRaterRunner {
 
 	public static void main(String[] args) {
 
-		UserList users = new UserList();
-		users.addUser("fake@ema.com", "pass");
-		users.addUser("fake@ema.com", "pass");
-		users.printSize();
-		System.out.println(users.toString());
 		MovieList movies = new MovieList();
+		TopLevel.generateRandomUserList(5, movies);
 		movies.printMovies();
+		System.out.println("");
+		TopLevel.printMainMenu();
+		movies.printRateScreen(3);
 
 	}
+	
 
 }

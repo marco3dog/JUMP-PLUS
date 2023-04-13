@@ -60,8 +60,18 @@ public class UserList {
 		return allUsers;
 	}
 	
+	public void printUsers() {
+		for(int i = 0; i < users.size(); i++) {
+			System.out.println(users.get(i).getEmail());
+		}
+	}
+	
 	public void printSize() {
 		System.out.println(users.size());
+	}
+	
+	public User getUser(int i) {
+		return users.get(i);
 	}
 	
 	
