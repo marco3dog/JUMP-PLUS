@@ -10,6 +10,7 @@ public class UserList {
 
 	public UserList() {
 		super();
+		users = new ArrayList<User>();
 	}
 	
 	public boolean authenticate(String email, String password) {
@@ -49,4 +50,19 @@ public class UserList {
 		users.add(new User(email, password));
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		String allUsers = "";
+		for(int i = 0; i < users.size(); i++) {
+			allUsers.concat((users.get(i).getEmail() + "/n"));
+		}
+		return allUsers;
+	}
+	
+	public void printSize() {
+		System.out.println(users.size());
+	}
+	
+	
 }
