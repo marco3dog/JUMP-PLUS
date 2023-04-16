@@ -21,11 +21,11 @@ public class MovieList {
 
 	public boolean rateMovie(int index, double rating) {
 		if(rating > 5 || rating < 0) {
-			System.out.println("You have entered a rating outside of the range 0-5.");
+			System.out.println("        You have entered a rating outside of the range 0-5.");
 			return false;
 		}
 		if(index < 0 || index > 4) {
-			System.out.println("You have entered an invalid movie number.");
+			System.out.println("        You have entered an invalid movie number.");
 			return false;
 		}
 		Movie selected = movies.get(index);
@@ -73,7 +73,7 @@ public class MovieList {
 		
 		//Print data
 		for(int i = 0; i < movies.size(); i++) {
-			System.out.format("%24s", (i + 1) + ").");
+			System.out.format("%24s", (i + 1) + ".)");
 			System.out.format("%24s", data[i][0]);
 			System.out.format("%24s", data[i][1]);
 			System.out.format("%24s", data[i][2]);
@@ -94,7 +94,10 @@ public class MovieList {
 		
 	}
 	
-	public void printRateScreen(int movieIndex) {
+	public void printRateScreen(int movieIndex) throws Exception{
+		if(movieIndex >= movies.size() || movieIndex < 0) {
+			throw new Exception();
+		}
 		System.out.print("+");
 		for(int i = 0; i < 94; i++) {
 			System.out.print("-");
