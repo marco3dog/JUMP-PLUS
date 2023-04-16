@@ -18,17 +18,17 @@ public class UserList {
 		for(int i = 0; i < users.size(); i++) {
 			if(users.get(i).getEmail().equals(email)) {
 				if(users.get(i).getPassword().equals(password)) {
-					System.out.println("Welcome, " + email +".");
+					System.out.println("        Welcome, " + email +".");
 					return true;
 				}
 				else {
-					System.out.println("You have entered the wrong password for this account.");
+					System.out.println("        You have entered the wrong password for this account.");
 					return false;
 				}
 			}
 
 		}
-		System.out.println("There is no account associated with this email.");
+		System.out.println("        There is no account associated with this email.");
 		return false;
 	}
 	
@@ -38,12 +38,12 @@ public class UserList {
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(email);
 		if(!matcher.matches()) {
-			System.out.println("You have entered an invalid email address.");
+			System.out.println("        You have entered an invalid email address.");
 			return false;
 		}
 		for(int i = 0; i < users.size(); i++) {
 			if(users.get(i).getEmail().equals(email)) {
-				System.out.println("A user with that email already exists.");
+				System.out.println("        A user with that email already exists.");
 				return false;
 			}
 		}
