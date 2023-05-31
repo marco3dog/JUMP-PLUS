@@ -1,0 +1,256 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "usr1",
+      "password": "pass",
+      "cart": []
+    },
+    {
+      "id": 2,
+      "username": "usr2",
+      "password": "pass",
+      "cart": []
+    },
+    {
+      "id": 3,
+      "username": "user3",
+      "password": "pass3",
+      "cart": []
+    },
+    {
+      "id": 4,
+      "username": "sample",
+      "password": "pass",
+      "cart": []
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "userId": 2,
+      "total": 1000,
+      "cart": [
+        {
+          "id": 1,
+          "name": "Conference Room Table",
+          "price": 1000,
+          "src": "https://i.imgur.com/ujDKe2U.png"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "total": 2000,
+      "cart": [
+        {
+          "id": 2,
+          "name": "Stereo System",
+          "price": 2000,
+          "src": "https://i.imgur.com/WCc2uIl.png"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "total": 9100,
+      "cart": [
+        {
+          "id": 4,
+          "name": "Office Chair",
+          "price": 100,
+          "src": "https://i.imgur.com/2IBc6qy.png"
+        },
+        {
+          "id": 3,
+          "name": "Lounge Couch",
+          "price": 6000,
+          "src": "https://i.imgur.com/llRFLPX.png"
+        },
+        {
+          "id": 2,
+          "name": "Stereo System",
+          "price": 2000,
+          "src": "https://i.imgur.com/WCc2uIl.png"
+        },
+        {
+          "id": 1,
+          "name": "Conference Room Table",
+          "price": 1000,
+          "src": "https://i.imgur.com/ujDKe2U.png"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "userId": 2,
+      "total": 9000,
+      "cart": [
+        {
+          "id": 1,
+          "name": "Conference Room Table",
+          "price": 1000,
+          "src": "https://i.imgur.com/ujDKe2U.png"
+        },
+        {
+          "id": 2,
+          "name": "Stereo System",
+          "price": 2000,
+          "src": "https://i.imgur.com/WCc2uIl.png"
+        },
+        {
+          "id": 3,
+          "name": "Lounge Couch",
+          "price": 6000,
+          "src": "https://i.imgur.com/llRFLPX.png"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "userId": 2,
+      "total": 9000,
+      "cart": [
+        {
+          "id": 1,
+          "name": "Conference Room Table",
+          "price": 1000,
+          "src": "https://i.imgur.com/ujDKe2U.png"
+        },
+        {
+          "id": 2,
+          "name": "Stereo System",
+          "price": 2000,
+          "src": "https://i.imgur.com/WCc2uIl.png"
+        },
+        {
+          "id": 3,
+          "name": "Lounge Couch",
+          "price": 6000,
+          "src": "https://i.imgur.com/llRFLPX.png"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "userId": 2,
+      "total": 7100,
+      "cart": [
+        {
+          "id": 1,
+          "name": "Conference Room Table",
+          "price": 1000,
+          "src": "https://i.imgur.com/ujDKe2U.png"
+        },
+        {
+          "id": 4,
+          "name": "Office Chair",
+          "price": 100,
+          "src": "https://i.imgur.com/2IBc6qy.png"
+        },
+        {
+          "id": 3,
+          "name": "Lounge Couch",
+          "price": 6000,
+          "src": "https://i.imgur.com/llRFLPX.png"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "userId": 4,
+      "total": 9100,
+      "cart": [
+        {
+          "id": 1,
+          "name": "Conference Room Table",
+          "price": 1000,
+          "src": "https://i.imgur.com/ujDKe2U.png"
+        },
+        {
+          "id": 2,
+          "name": "Stereo System",
+          "price": 2000,
+          "src": "https://i.imgur.com/WCc2uIl.png"
+        },
+        {
+          "id": 3,
+          "name": "Lounge Couch",
+          "price": 6000,
+          "src": "https://i.imgur.com/llRFLPX.png"
+        },
+        {
+          "id": 4,
+          "name": "Office Chair",
+          "price": 100,
+          "src": "https://i.imgur.com/2IBc6qy.png"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "userId": 2,
+      "total": 500,
+      "cart": [
+        {
+          "id": 4,
+          "name": "Office Chair",
+          "price": 100,
+          "src": "https://i.imgur.com/2IBc6qy.png"
+        },
+        {
+          "id": 4,
+          "name": "Office Chair",
+          "price": 100,
+          "src": "https://i.imgur.com/2IBc6qy.png"
+        },
+        {
+          "id": 4,
+          "name": "Office Chair",
+          "price": 100,
+          "src": "https://i.imgur.com/2IBc6qy.png"
+        },
+        {
+          "id": 4,
+          "name": "Office Chair",
+          "price": 100,
+          "src": "https://i.imgur.com/2IBc6qy.png"
+        },
+        {
+          "id": 4,
+          "name": "Office Chair",
+          "price": 100,
+          "src": "https://i.imgur.com/2IBc6qy.png"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": 1,
+      "name": "Conference Room Table",
+      "price": 1000,
+      "src": "https://i.imgur.com/ujDKe2U.png"
+    },
+    {
+      "id": 2,
+      "name": "Stereo System",
+      "price": 2000,
+      "src": "https://i.imgur.com/WCc2uIl.png"
+    },
+    {
+      "id": 3,
+      "name": "Lounge Couch",
+      "price": 6000,
+      "src": "https://i.imgur.com/llRFLPX.png"
+    },
+    {
+      "id": 4,
+      "name": "Office Chair",
+      "price": 100,
+      "src": "https://i.imgur.com/2IBc6qy.png"
+    }
+  ]
+}
