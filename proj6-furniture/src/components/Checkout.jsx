@@ -41,7 +41,7 @@ const Checkout = ({user, setUser}) =>{
         if(tempUser.cart.length < 2){
             tempUser.cart = [];
         }
-        else {tempUser.cart.splice(i,i);}
+        else {tempUser.cart.splice(i,1);}
         setUser(tempUser);
         await dbApi.putUser(user);
         populateProducts();
