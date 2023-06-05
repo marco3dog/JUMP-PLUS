@@ -13,17 +13,17 @@ const Tutor = () => {
        <table className='table table-light mt-3'>
        <thead className='thead-light'>
             <tr>
-                <th scope='col'>ID</th>
                 <th scope='col'>Tutor</th>
                 <th scope ='col'>Contact</th>
+                <th scope ='col'>Rating</th>
             </tr>
         </thead>
         <tbody>{
             tutorList.map(t =>
             <tr key={t.id}>
-                <td>{t.id}</td>
                 <td>{t.username}</td>
                 <td>{t.email}</td>
+                <td>{t.rating}</td>
             </tr>)
 } </tbody>
        </table> 

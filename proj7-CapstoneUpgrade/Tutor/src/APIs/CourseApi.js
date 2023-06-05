@@ -25,9 +25,9 @@ getCourses:(setCourseList)=>{
     }).catch( (error) => { console.log(error) } );
 },
 
-getCourseByUser:(setCourseList)=>{
+getCourseByUser: (setCourseList)=>{
     const token=getAuthToken();
-    fetch(apiURL2 ,{
+     fetch(apiURL2 ,{
         method:'GET',
         headers: {
             'Accept': 'application/json',

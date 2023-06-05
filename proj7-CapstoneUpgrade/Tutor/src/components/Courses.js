@@ -11,7 +11,8 @@ const Courses=()=>{
     const [endtime,setEndTime]=useState("")
     const [userID,setUserID]=useState(0)
     console.log(courseList);
-   const  handleSubmit=(event)=>{
+    const navigate = useNavigate();
+   const  handleSubmit= async (event)=>{
 const session={
     "end":endtime,
     "start":starttime,
@@ -19,12 +20,12 @@ const session={
     "user": {"id": userID}
 }
 console.log(session)
-SessionApi.addSession(session)
+await SessionApi.addSession(session)
 event.preventDefault()
     }
     
-    useEffect(()=>{
-        CourseApi.getCourses(setCourseList)
+    useEffect(()=>{      
+        CourseApi.getCourseByUser(setCourseList)
         setUserID(parseInt(getSignedInUser().id))
     },[])
     return (
@@ -81,9 +82,14 @@ event.preventDefault()
                 <input type="datetime-local" className="form-control" value={starttime} onChange={(event)=>setStartTime(event.target.value)}></input>
                 <label className="form-label mt-3">End Time</label>
                 <input type="datetime-local" className="form-control" value={endtime} onChange={(event)=>setEndTime(event.target.value)}></input>
-                <button className="btn mt-3">Submit</button>
-                </form>
-              </div>
+                
+              
+              <div className="modal-footer">
+                      <input type="submit" className="btn submit-button" value="Submit"  data-bs-dismiss="modal"></input>
+                      <button type="button" className="btn close-button" data-bs-dismiss="modal">Close</button>
+                    </div>
+                    </form>
+                    </div>
             </div>
           </div>
 </div>

@@ -6,10 +6,10 @@ const apiURL="http://localhost:8080/api/session"
 const apiURL2="http://localhost:8080/api/tutor/session/"+userID
 const SessionApi={
   
-    addSession:(sessionToCreate)=>{
+    addSession: async (sessionToCreate)=>{
        
     
-        fetch(apiURL,{
+        await fetch(apiURL,{
             method:"POST",
             headers:{
                 'Accept': 'application/json',
