@@ -5,27 +5,48 @@ import React, { useEffect, useState } from 'react';
 import { getSignedInUser } from "../Util/auth";
 import SessionApi from "../APIs/SessionApi";
 const Courses=()=>{
+
+    var today = new Date().toISOString().slice(0, 16);
+    const getMax = () => {
+      let startDate = new Date(starttime)
+      startDate.setDate(startDate.getDate() + 7)
+      let max = startDate.toISOString().slice(0, 16);
+      return max
+    }
+
+    const birthday = new Date('August 19, 1975 23:15:30');
+const day1 = birthday.getDay()
+console.log(day1)
+
     const [courseList,setCourseList]=useState([])
     const [courseID,setCourseID]=useState(0)
-    const [starttime,setStartTime]=useState("")
+    const [starttime,setStartTime]=useState(today)
     const [endtime,setEndTime]=useState("")
     const [userID,setUserID]=useState(0)
     console.log(courseList);
     const navigate = useNavigate();
    const  handleSubmit= async (event)=>{
+
+  if(starttime > endtime){
+    alert("End time must be after start time")
+    return
+  }
 const session={
     "end":endtime,
     "start":starttime,
     "course":{"id":courseID},
     "user": {"id": userID}
 }
+
 console.log(session)
 await SessionApi.addSession(session)
 event.preventDefault()
     }
+
+    
     
     useEffect(()=>{      
-        CourseApi.getCourseByUser(setCourseList)
+        CourseApi.getAvailableCoursesByUser(setCourseList)
         setUserID(parseInt(getSignedInUser().id))
     },[])
     return (
@@ -79,9 +100,9 @@ event.preventDefault()
               <div className="modal-body">
                 <form className='form' onSubmit={handleSubmit} >
                 <label className="form-label">Start Time</label>
-                <input type="datetime-local" className="form-control" value={starttime} onChange={(event)=>setStartTime(event.target.value)}></input>
+                <input type="datetime-local" className="form-control" min={today} value={starttime} onChange={(event)=>setStartTime(event.target.value)}></input>
                 <label className="form-label mt-3">End Time</label>
-                <input type="datetime-local" className="form-control" value={endtime} onChange={(event)=>setEndTime(event.target.value)}></input>
+                <input type="datetime-local" className="form-control" min={starttime} max={getMax()} value={endtime} onChange={(event)=>setEndTime(event.target.value)}></input>
                 
               
               <div className="modal-footer">

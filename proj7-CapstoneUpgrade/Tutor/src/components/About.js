@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './CSS/about.css';
 const About = () => {
     return (
-        <section>                
+        <div id="wrappers">                
              <section className='section-about'>        
                 <div className='left-side'>
                     <h4 className='tutor'>Lets find a tutor <br/>that matches your needs.</h4>
@@ -17,7 +17,7 @@ const About = () => {
                     <p>Anybody can be a tutor as long as you show proof that you have completed that course with a passing grade. For example, if you're a college student looking for a way to earn a bit of extra money, you can tutor a middle school student in any subject that you are most comfortable in. 90% of the money goes to you with a 10% service fee. </p>
                 </div>
                 </section>
-        </section>
+        </div>
     )
 }
 

@@ -42,6 +42,11 @@
     right: 10rem;
     font-size: 50px;
 }
+#wrappers{
+
+    display: flex;
+    flex-direction: column;
+}
 @media (max-width: 1050px) { 
     .section-about {
         display: flex;
