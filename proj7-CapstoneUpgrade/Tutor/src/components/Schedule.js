@@ -9,16 +9,36 @@ const Schedule = () => {
 
   const navigate = useNavigate();
 
-  const [SubjectID, setSubjectID] = useState(0);
+  const [SubjectID, setSubjectID] = useState(1);
   const [subjectList, setSubjectList] = useState([]);
-  const [Availability, setAvailability] = useState("");
+  const [Availability, setAvailability] = useState([]);
   const [Hourly, setHourly] = useState(0);
   const [UserID, setUserID]=useState(0)
+
+  const changeAvail = (bool, day) =>{
+    bool ? Availability.push(day) : Availability.filter(e => e !== day)
+    setAvailability(Availability)
+  }
   const handleSubmit = (event) => {
+    console.log(Hourly + "Before If")
+    if(Hourly < 0){
+      console.log(Hourly + "Inside If")
+      alert("Hourly rate must be greater than 0")
+      return
+    }
+    let checks = document.getElementsByName("day")
+    for(let i =0; i < checks.length; i++){
+      if(checks[i].checked){
+        Availability.push(checks[i].value)
+      }
+    }
+    let av = Availability.join(", ");
+    console.log(av)
+    console.log(Availability)
     const course = {
       "subject": {"id": SubjectID},
       "hourly": Hourly,
-      "availability": Availability,
+      "availability": av,
       "tutor":{"id":UserID}
     }
     console.log(course)
@@ -90,7 +110,7 @@ event.preventDefault()
                         type="number"
                         className="form-control"
                         required
-                        min="0"
+                       // min="0"
                         step="0.01"
                         value={Hourly}
                         onChange={(event) => {
@@ -101,18 +121,60 @@ event.preventDefault()
 
                     <div className="row mb-3">
                       <label className="form-label">Availability</label>
-                      <input
+                      {/* <input
                         type="text"
                         className="form-control"
                         value={Availability}
                         onChange={(event) => {
                           setAvailability(event.target.value);
                         }}
-                      ></input>
+                      ></input> */}
+                      <div class="form-check">
+                      <input class="form-check-input" name="day" type="checkbox" value="Mon" id="Monday"/>
+                      <label class="form-check-label" for="flexCheckDefault">
+                        Monday
+                      </label>
+                      </div>
+                      <div class="form-check">
+                      <input class="form-check-input" name="day" type="checkbox" value="Tues" id="Tuesday"/>
+                      <label class="form-check-label" for="flexCheckDefault">
+                        Tuesday
+                      </label>
+                      </div>
+                      <div class="form-check">
+                      <input class="form-check-input" name="day" type="checkbox" value="Wed" id="Wednesday"/>
+                      <label class="form-check-label" for="flexCheckDefault">
+                        Wednesday
+                      </label>
+                      </div>
+                      <div class="form-check">
+                      <input class="form-check-input" name="day" type="checkbox" value="Thurs" id="Thursday"/>
+                      <label class="form-check-label" for="flexCheckDefault">
+                        Thursday
+                      </label>
+                      </div>
+                      <div class="form-check">
+                      <input class="form-check-input" name="day" type="checkbox" value="Fri" id="Friday"/>
+                      <label class="form-check-label" for="flexCheckDefault">
+                        Friday
+                      </label>
+                      </div>
+                      <div class="form-check">
+                      <input class="form-check-input" name="day" type="checkbox" value="Sat" id="Saturday"/>
+                      <label class="form-check-label" for="flexCheckDefault">
+                        Saturday
+                      </label>
+                      </div>
+                      <div class="form-check">
+                      <input class="form-check-input" name="day" type="checkbox" value="Sun" id="Sunday"/>
+                      <label class="form-check-label" for="flexCheckDefault">
+                        Sunday
+                      </label>
+                      </div>
                     </div>
                     <div className="modal-footer">
-                      <input type="submit" className="btn submit-button" value="Submit"  data-bs-dismiss="modal"></input>
-                      <button type="button" className="btn close-button" data-bs-dismiss="modal">Close</button>
+                      <input id="submitButton" type="submit" className="btn submit-button" value="Submit"  data-bs-dismiss="modal"></input>
+                      <button id="submitButton" type="button" className="btn close-button" data-bs-dismiss="modal">Close</button>
                     </div>
                   </form>
                 </div>

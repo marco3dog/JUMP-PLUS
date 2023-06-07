@@ -8,14 +8,14 @@ const Home = (props) => {
     return (
         <section className='whole-body'>
             <section className='header'>
-                <div className="home-logo">
+                {/* <div className="home-logo">
                     <hr className="home-top-line"/>
                     <div className="logo-line">
                         <hr className="home-vertical-line"/>
                         <p className="text-logo">Mara <br/> Tutoring</p>
                     </div>
                     <hr className="home-bottom-line"/>
-                </div>
+                </div> */}
                 <div className="home-navigation-div">
                     <nav className="navbar navbar-expand-lg bg-light navigation top-nav">
                         <Link className="nav-link btn links" to="/signup">Login</Link>

@@ -73,6 +73,10 @@ td {
 td{
     width: fit-content;
 }
+
+.close-button:hover, .submit-button:hover {
+    background-color: rgb(110, 175, 110);
+}
 @media (max-width: 1050px) { 
     .student-body {
         display: flex;

@@ -17,11 +17,10 @@ function App() {
   const location = useLocation(); // Created to hide headers
   const showHeader = location.pathname !== '/auth'; // hide the header from the auth
   const showSignup = location.pathname !== '/signup'; // to hide the header from the signup
-  const showHome = location.pathname !== '/';
   return (
     <div className='container'>
 
-   {showHeader && showSignup &&  showHome && <Header/>}
+   {showHeader && showSignup &&   <Header/>}
  
       <Routes>
         <Route path="/" element={<Home/>} exact/>

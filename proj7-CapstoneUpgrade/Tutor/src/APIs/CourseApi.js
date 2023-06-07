@@ -5,6 +5,7 @@ const apiURL1="http://localhost:8080/api/course"
 const apiURL2="http://localhost:8080/api/course/user_id/"+userID
 const apiURL3="http://localhost:8080/api/course/update"
 const apiURL4="http://localhost:8080/api/course/create"
+const apiURL5="http://localhost:8080/api/course/available_user_id/"+userID
 const CourseApi={
 getCourses:(setCourseList)=>{
     const token=getAuthToken();
@@ -25,9 +26,9 @@ getCourses:(setCourseList)=>{
     }).catch( (error) => { console.log(error) } );
 },
 
-getCourseByUser: (setCourseList)=>{
+getCourseByUser: async (setCourseList)=>{
     const token=getAuthToken();
-     fetch(apiURL2 ,{
+     await fetch(apiURL2 ,{
         method:'GET',
         headers: {
             'Accept': 'application/json',
@@ -72,7 +73,26 @@ updateCourse:(courseToUpdate)=>{
 .then(data=>{
     console.log(data)
 }).catch((error)=>{console.log(error)})
-}}
+},
+getAvailableCoursesByUser: (setCourseList)=>{
+    const token=getAuthToken();
+     fetch(apiURL5 ,{
+        method:'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization':'Bearer '+ token
+        }
+    }).then((result)=>{
+        console.log("Result")
+        console.log(result)
+        return result.json()
+    }).then((data)=>{
+        console.log(data)
+        setCourseList(data)
+    }).catch( (error) => { console.log(error) } );
+}
+}
 
 
 export default CourseApi;

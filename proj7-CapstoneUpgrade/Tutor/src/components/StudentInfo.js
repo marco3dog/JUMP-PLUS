@@ -45,10 +45,16 @@ const StudentInfo = () => {
 
     SessionApi.updateSession(session)
   };
+
+  const courses = async () =>{
+   await CourseApi.getCourseByUser(setCourseList);
+  }
   useEffect(() => {
+
     setUserID(parseInt(getSignedInUser().id));
     UserAPI.getStudentSession(setSessionList);
-    CourseApi.getCourseByUser(setCourseList);
+    //CourseApi.getCourseByUser(setCourseList);
+    courses();
     SessionApi.getTutorSession(setTutorList);
   }, []);
   return (
@@ -303,13 +309,19 @@ const StudentInfo = () => {
                <div className="row">
                   <form className="form" onSubmit={handleSubmit2}>
                     <label className="form-label">Rating</label>
-                   <input type="number" className="form-control" value={rating}  onChange={(event) => {
-                        setRating(event.target.value) }}></input>
+                    <select class="form-select" aria-label="Default select example" name="rating" id="rate-dropdown" onChange={(event) => {
+                        setRating(event.target.value) }}>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
                    <div className="modal-footer">
-                    <input type="submit" className="btn" value="Submit"  ></input>
+                    <input type="submit" className="btn submit-button" value="Submit" ></input>
                     <button
                       type="button"
-                      className="btn"
+                      className="btn close-button"
                       data-bs-dismiss="modal"
                     >
                       Close
