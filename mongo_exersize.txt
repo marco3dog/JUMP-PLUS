@@ -1,0 +1,60 @@
+1. db.EmployeeInfo.find({}, { EmpFname: 1 })
+2. db.EmployeeInfo.countDocuments({ Department: 'HR' })
+3. new Date()
+4. db.EmployeeInfo.aggregate([{ $project: { EmpLnameFirstFour: { $substr: ["$EmpLname", 0, 4] } } }])
+5. db.EmployeeInfo.aggregate([{ $project: { PlaceName: { $arrayElemAt: [ { $split: ["$Address", "("] }, 0 ] } } }])
+6. db.EmployeePosition.find({ Salary: { $gte: 50000, $lte: 100000 } }, { _id: 0, EmpID: 1 })
+7. db.EmployeeInfo.find({ EmpFname: /^S/ }, { _id: 0, EmpFname: 1 })
+8. db.EmployeeInfo.aggregate([{ $project: { _id: 0, FullName: { $concat: ["$EmpFname", " ", "$EmpLname"] } } }])
+9. db.EmployeeInfo.find().sort({ EmpLname: -1, Department: 1 })
+10. db.EmployeeInfo.find({ EmpFname: { $nin: ["Sanjay", "Sonia"] } })
+11. db.EmployeeInfo.find({ Address: "Delhi(DEL)" })
+12. db.EmployeePosition.find({ EmpPosition: "Manager" }, { _id: 0, EmpID: 1 })
+13. db.EmployeeInfo.aggregate([{ $group: { _id: "$Department", count: { $sum: 1 } } }, { $sort: { count: 1 } }])
+14. db.EmployeePosition.aggregate([
+  { $sort: { Salary: 1 } },
+  { $group: { _id: null, minSalaries: { $push: "$Salary" }, maxSalaries: { $push: "$Salary" } } },
+  { $project: { _id: 0, minSalaries: { $slice: ["$minSalaries", 2] }, maxSalaries: { $slice: ["$maxSalaries", -2] } } }
+])
+15. db.EmployeeInfo.aggregate([
+  {
+    $group: {
+      _id: { EmpFname: "$EmpFname", EmpLname: "$EmpLname" },
+      count: { $sum: 1 },
+      ids: { $push: "$_id" }
+    }
+  },
+  {
+    $match: {
+      count: { $gt: 1 }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      EmpFname: "$_id.EmpFname",
+      EmpLname: "$_id.EmpLname",
+      DuplicateCount: "$count",
+      DuplicateIds: "$ids"
+    }
+  }
+])
+16. db.EmployeeInfo.aggregate([{ $group: { _id: "$Department", employees: { $push: { EmpID: "$EmpID", EmpFname: "$EmpFname", EmpLname: "$EmpLname" } } } }])
+17. db.EmployeeInfo.find().sort({ _id: -1 }).limit(3)
+18. db.EmployeePosition.find().sort({ Salary: -1 }).limit(1).skip(2)
+19. 	First: db.EmployeeInfo.find().limit(1).sort({ _id: 1 })
+	Last: db.EmployeeInfo.find().limit(1).sort({ _id: -1 })
+20. db.EmployeeInfo.aggregate([{ $group: { _id: "$Department", count: { $sum: 1 } } }, { $match: { count: { $lt: 2 } } }])
+21. db.EmployeePosition.aggregate([{ $group: { _id: "$EmpPosition", totalSalary: { $sum: "$Salary" } } }])
+
+
+
+
+
+
+
+
+
+
+
+
